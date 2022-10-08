@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LimaNovember.Aero - Evionica CBT Enhancements
 // @namespace    https://limanovember.aero/
-// @version      0.1
+// @version      0.2
 // @description  Make the CBT a bit better for myself
 // @icon         https://limanovember.aero/images/icon.png
 // @author       thomfre
@@ -61,16 +61,16 @@ const observeAndAct = () => {
 };
 
 const keyEventHandler = (e) => {
-    if (e.keyCode == 32) {
+    if (e.keyCode === 32) {
         const playButton = iframe.querySelector('div[data-acc-text^="Play_button"]');
         const pauseButton = iframe.querySelector('div[data-acc-text^="Pause_button"]');
 
         if (playButton.classList.contains('shown')) {
-            playButton.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
-            setTimeout(playButton.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true })), 2000);
+            playButton.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
         } else if (pauseButton.classList.contains('shown')) {
-            pauseButton.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
-            setTimeout(pauseButton.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true })), 2000);
+            pauseButton.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
+        } else {
+            console.error('Unknown play/pause state');
         }
     }
 };
