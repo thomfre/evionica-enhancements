@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LimaNovember.Aero - Evionica CBT Enhancements
 // @namespace    https://limanovember.aero/
-// @version      0.6
+// @version      0.7
 // @description  Make the CBT a bit better for myself
 // @icon         https://limanovember.aero/images/icon.png
 // @author       thomfre
@@ -18,9 +18,16 @@ let lastText = '';
 let iframe = undefined;
 
 const prependTextContainer = () => {
-    GM_addStyle(
-        '#lnaHeader:empty { display: none; } #lnaHeader { text-align: center; padding: 1px; position: fixed; top: 0; left: 30px; right: 30px; z-index: 999; background-color: #3E4045; color: #E6E0E0; font-size: 0.5rem; }'
-    );
+
+    if (window.location.href.startsWith('https://cdn2.')) {
+        GM_addStyle(
+            '#lnaHeader:empty { display: none; } #lnaHeader { text-align: center; padding: 5px; position: fixed; top: 0; left: 89px; right: 89.5px; z-index: 999; background-color: #3E4045; color: #E6E0E0; font-size: 1.5rem; }'
+        );
+    } else {
+        GM_addStyle(
+            '#lnaHeader:empty { display: none; } #lnaHeader { text-align: center; padding: 1px; position: fixed; top: 0; left: 30px; right: 30px; z-index: 999; background-color: #3E4045; color: #E6E0E0; font-size: 0.5rem; }'
+        );
+    }
 
     let div = document.createElement('div');
     div.id = 'lnaHeader';

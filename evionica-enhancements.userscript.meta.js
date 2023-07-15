@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LimaNovember.Aero - Evionica CBT Enhancements
 // @namespace    https://limanovember.aero/
-// @version      0.6
+// @version      0.7
 // @description  Make the CBT a bit better for myself
 // @icon         https://limanovember.aero/images/icon.png
 // @author       thomfre
